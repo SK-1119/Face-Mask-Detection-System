@@ -19,9 +19,9 @@ train_datagen=ImageDataGenerator(zoom_range=0.2,shear_range=0.2,horizontal_flip=
 
 test_datagen = ImageDataGenerator(rescale=1/255)
 #%%
-train_dataset=train_datagen.flow_from_directory(r"E:\Coding\Machine Learning\Face Mask Detection\train",class_mode="binary",target_size=(150,150),batch_size=16)
+train_dataset=train_datagen.flow_from_directory(r"train",class_mode="binary",target_size=(150,150),batch_size=16)
 
-test_dataset = test_datagen.flow_from_directory(r"E:\Coding\Machine Learning\Face Mask Detection\test",class_mode="binary",target_size=(150,150),batch_size=16)
+test_dataset = test_datagen.flow_from_directory(r"test",class_mode="binary",target_size=(150,150),batch_size=16)
 #%%
 cnn=tf.keras.models.Sequential()
 cnn.add(tf.keras.layers.Conv2D(filters=32,kernel_size=3,input_shape=(150,150,3),activation="relu"))
